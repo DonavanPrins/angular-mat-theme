@@ -1,0 +1,8 @@
+@use 'app/test';
+@use 'app/theme/_mytheme';
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}

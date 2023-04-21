@@ -1,0 +1,56 @@
+<ng-container *subscribe="isLightTheme$ as isLightTheme">
+  <div [ngClass]="isLightTheme ? 'light-theme' : ''">
+    <mat-toolbar class="header">
+      <mat-slide-toggle
+        [color]="'warn'"
+        [checked]="isLightTheme"
+        (change)="toggleDarkTheme($event.checked)"
+        >{{ isLightTheme ? 'Light Theme' : 'Dark Theme' }}</mat-slide-toggle
+      >
+    </mat-toolbar>
+    <mat-sidenav-container>
+      <mat-sidenav
+        [fixedInViewport]="false"
+        [fixedTopGap]="60"
+        [fixedBottomGap]="60"
+        mode="side"
+        opened="true"
+      >
+        sidebar
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <div class="test">test</div>
+
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              <font class="">Title</font>
+              <button
+                mat-icon-button
+                class="card-menu"
+                [matMenuTriggerFor]="menu"
+                aria-label="Toggle menu"
+              >
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+              </mat-menu>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+              <div
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                style="height: 500px"
+              ></div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</ng-container>
